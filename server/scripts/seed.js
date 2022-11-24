@@ -3,24 +3,25 @@ const {
   getRandomDate,
   getRandomNum,
 } = require('../utils/randomUtils.js');
+require('dotenv').config();
 
 const {
   roundInvestedFixtures,
   companyNameFixtures,
 } = require('../fixtures/fixtures.js');
 
-const { connectDB } = require('../utils/dbUtils');
+const { initDBConnection } = require('../utils/dbUtils');
 const db = require('../models');
 const PortfolioCompany = db.portfolioCompany;
 
 const seedData = async () => {
   try {
-    const db = await connectDB(() => {
+    await initDBConnection(() => {
       companyNameFixtures.forEach((name, index) => {
         const portfolioCompany = new PortfolioCompany({
           companyId: index,
           companyName: name,
-          roundIntvested:
+          roundInvested:
             roundInvestedFixtures[
               getRandomInt(0, roundInvestedFixtures.length)
             ],
@@ -39,7 +40,6 @@ const seedData = async () => {
       });
       console.log('Mock data is seeded from seed script.');
     });
-    process.exit();
   } catch (err) {
     console.error(err);
     process.exit();

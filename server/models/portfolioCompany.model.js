@@ -9,7 +9,7 @@ module.exports = (mongoose, mongoosePaginate) => {
         type: String,
         required: true,
       },
-      roundIntvested: {
+      roundInvested: {
         type: String,
         enum: [
           'Pre-seed',

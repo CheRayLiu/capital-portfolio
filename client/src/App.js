@@ -1,5 +1,4 @@
 import { createTheme, NextUIProvider } from '@nextui-org/react';
-import useDarkMode from 'use-dark-mode';
 import Dashboard from './modules/dashboard/components/index.js';
 
 const lightTheme = createTheme({
@@ -9,18 +8,9 @@ const lightTheme = createTheme({
   },
 });
 
-const darkTheme = createTheme({
-  type: 'dark',
-  theme: {
-    colors: {},
-  },
-});
-
 function App() {
-  const darkMode = useDarkMode(false);
-
   return (
-    <NextUIProvider theme={darkMode.value ? darkTheme : lightTheme}>
+    <NextUIProvider theme={lightTheme}>
       <Dashboard />
     </NextUIProvider>
   );

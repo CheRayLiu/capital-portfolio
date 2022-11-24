@@ -9,7 +9,7 @@ const {
   companyNameFixtures,
 } = require('../fixtures/fixtures.js');
 
-const { connectDB, disconnectDB } = require('../utils/dbUtils');
+const { connectDB } = require('../utils/dbUtils');
 const db = require('../models');
 const PortfolioCompany = db.portfolioCompany;
 

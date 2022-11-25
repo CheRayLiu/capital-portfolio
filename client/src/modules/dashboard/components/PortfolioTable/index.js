@@ -6,17 +6,36 @@ import {
   Text,
 } from '../../../common/components';
 
+import CompanyInputModal from './companyInputModal';
 import { PlusIcon } from '../../../common/components';
 import { useGetCompanies } from '../../../common/hooks';
+import { useState } from 'react';
 
 export default function PortfolioTable({ css }) {
   const { data, error, isLoading } = useGetCompanies();
+  const [isInputModalVisible, setIsInputModalVisible] =
+    useState(false);
+
+  const onInputSubmit = () => {
+    console.log('submitted');
+    setIsInputModalVisible(false);
+  };
+
+  const onAddCompanyClickHandler = () => {
+    setIsInputModalVisible(true);
+  };
+
+  const onModalCloseHandler = () => {
+    setIsInputModalVisible(false);
+  };
 
   if (error)
     return (
-      <div>
-        Failed to load your Portfolio. Please refresh to try again
-      </div>
+      <Container css={css}>
+        <Text>
+          Failed to load your Portfolio. Please refresh to try again
+        </Text>
+      </Container>
     );
   if (isLoading)
     return (
@@ -32,12 +51,28 @@ export default function PortfolioTable({ css }) {
     );
   return (
     <Container css={css}>
-      <Container css={{ d: 'flex', justifyContent: 'space-between' }}>
-        <Text h3>Portfolio</Text>
-        <Button icon={<PlusIcon />} color="primary">
+      <Container
+        css={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItem: 'center',
+        }}
+      >
+        <Text h2>Our Portfolio</Text>
+        <Button
+          flat
+          icon={<PlusIcon />}
+          onClick={onAddCompanyClickHandler}
+          color="primary"
+        >
           Add a Company
         </Button>
       </Container>
+      <CompanyInputModal
+        visible={isInputModalVisible}
+        onSubmit={onInputSubmit}
+        onClose={onModalCloseHandler}
+      />
       <Table
         lined
         striped

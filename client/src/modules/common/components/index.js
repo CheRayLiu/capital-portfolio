@@ -17,6 +17,7 @@ import {
 import ContraryLogo from './logos/contraryLogo';
 import { FeedbackIcon } from './icons/feedbackIcon';
 import { PlusIcon } from './icons/plusIcon';
+import { Select } from './select';
 
 export {
   Avatar,
@@ -31,8 +32,9 @@ export {
   Loading,
   Modal,
   Navbar,
-  Row,
   PlusIcon,
+  Row,
+  Select,
   Table,
   Text,
 };

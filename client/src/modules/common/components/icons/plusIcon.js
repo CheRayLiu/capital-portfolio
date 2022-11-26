@@ -18,10 +18,10 @@ export const PlusIcon = ({ stroke = 'currentColor' }) => {
           transform="translate(9.211 6.163)"
           fill="none"
           stroke={stroke}
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="1.5"
         />
         <path
           id="Stroke_2"
@@ -30,10 +30,10 @@ export const PlusIcon = ({ stroke = 'currentColor' }) => {
           transform="translate(6.159 9.211)"
           fill="none"
           stroke={stroke}
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="1.5"
         />
         <path
           id="Stroke_3"
@@ -42,10 +42,10 @@ export const PlusIcon = ({ stroke = 'currentColor' }) => {
           transform="translate(0 0)"
           fill="none"
           stroke={stroke}
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="1.5"
         />
       </g>
     </Svg>

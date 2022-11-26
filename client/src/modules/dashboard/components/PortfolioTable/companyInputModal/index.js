@@ -1,10 +1,11 @@
 import {
   Button,
   Container,
-  Input,
   Modal,
   Text,
 } from '../../../../common/components';
+
+import CompanyInputForm from './companyInputForm';
 
 export default function CompanyInputModal({
   visible,
@@ -29,54 +30,13 @@ export default function CompanyInputModal({
           </Container>
         </Modal.Header>
         <Modal.Body>
-          <Input
-            bordered
-            fullWidth
-            color="primary"
-            size="lg"
-            label="Company Name"
-          />
-          <Input
-            bordered
-            fullWidth
-            color="primary"
-            size="lg"
-            label="Round Invested"
-          />
-          <Input
-            clearable
-            bordered
-            fullWidth
-            color="primary"
-            size="lg"
-            labelLeft="$"
-            placeholder="Valuation at Raise"
-            label="Valuation at Raise"
-          />
-          <Input
-            bordered
-            fullWidth
-            color="primary"
-            size="lg"
-            type="date"
-            label="Date of investment"
-            placeholder="Password"
-          />
-          <Input
-            bordered
-            fullWidth
-            color="primary"
-            size="lg"
-            label="Equity %"
-            placeholder="Equity %"
-            labelRight="%"
-          />
+          <CompanyInputForm />
         </Modal.Body>
         <Modal.Footer>
-          <Button auto flat onClick={onClose}>
+          <Button auto flat onPress={onClose}>
             Cancel
           </Button>
-          <Button auto onClick={onSubmit}>
+          <Button auto onPress={onSubmit}>
             Submit
           </Button>
         </Modal.Footer>

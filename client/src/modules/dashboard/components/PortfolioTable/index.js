@@ -21,13 +21,19 @@ export default function PortfolioTable({ css }) {
     setIsInputModalVisible(false);
   };
 
-  const onAddCompanyClickHandler = () => {
+  const addCompanyClickHandler = () => {
     setIsInputModalVisible(true);
   };
 
   const onModalCloseHandler = () => {
     setIsInputModalVisible(false);
   };
+
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  });
 
   if (error)
     return (
@@ -62,7 +68,7 @@ export default function PortfolioTable({ css }) {
         <Button
           flat
           icon={<PlusIcon />}
-          onClick={onAddCompanyClickHandler}
+          onPress={addCompanyClickHandler}
           color="primary"
         >
           Add a Company
@@ -102,15 +108,22 @@ export default function PortfolioTable({ css }) {
         </Table.Header>
         <Table.Body>
           {data.docs.map((company) => {
+            let date = new Date(company.dateOfRaise);
             return (
               <Table.Row key={company.companyId}>
                 <Table.Cell>{company.companyId}</Table.Cell>
                 <Table.Cell>{company.companyName}</Table.Cell>
                 <Table.Cell>{company.roundInvested}</Table.Cell>
-                <Table.Cell>{company.amount}</Table.Cell>
-                <Table.Cell>{company.valuationAtRaise}</Table.Cell>
-                <Table.Cell>{company.dateOfRaise}</Table.Cell>
-                <Table.Cell>{company.equityPercent}</Table.Cell>
+                <Table.Cell>
+                  {formatter.format(company.amount)}
+                </Table.Cell>
+                <Table.Cell>
+                  {formatter.format(company.valuationAtRaise)}
+                </Table.Cell>
+                <Table.Cell>{`${
+                  date.getMonth() + 1
+                }/${date.getDate()}/${date.getFullYear()}`}</Table.Cell>
+                <Table.Cell>{company.equityPercent + '%'}</Table.Cell>
               </Table.Row>
             );
           })}

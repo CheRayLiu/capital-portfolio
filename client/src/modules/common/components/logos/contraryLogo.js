@@ -7,7 +7,6 @@ export default function ContraryLogo({ height, width }) {
       width={width}
       src="https://contrary.com/logo.png"
       alt="Logo"
-      noShawdow
     ></Image>
   );
 }

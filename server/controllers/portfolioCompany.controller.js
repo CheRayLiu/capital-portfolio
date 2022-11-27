@@ -5,7 +5,7 @@ exports.create = (req, res) => {
   const portfolioCompany = new PortfolioCompany({
     companyId: req.body.companyId,
     companyName: req.body.companyName,
-    roundIntvested: req.body.roundIntvested,
+    roundInvested: req.body.roundInvested,
     amount: +req.body.amount,
     valuationAtRaise: +req.body.valuationAtRaise,
     dateOfRaise: req.body.dateOfRaise,
@@ -44,7 +44,7 @@ exports.findAll = (req, res) => {
 };
 
 function getPagination(page, size) {
-  const limit = size ? +size : 10;
+  const limit = size ? +size : 2000;
   const offset = page ? page * limit : 0;
 
   return { limit, offset };

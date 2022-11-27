@@ -1,5 +1,9 @@
-import { createTheme, NextUIProvider } from '@nextui-org/react';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { NextUIProvider, createTheme } from '@nextui-org/react';
+
 import Dashboard from './modules/dashboard/components/index.js';
+import { ToastContainer } from 'react-toastify';
 
 const lightTheme = createTheme({
   type: 'light',
@@ -12,6 +16,7 @@ function App() {
   return (
     <NextUIProvider theme={lightTheme}>
       <Dashboard />
+      <ToastContainer />
     </NextUIProvider>
   );
 }

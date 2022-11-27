@@ -9,7 +9,7 @@ export const numberValidator = ({ min = 0, max = 100 }) => {
       message: `Please enter a value smaller than ${max}`,
     },
     pattern: {
-      value: /^[0-9]*$/,
+      value: /^\d*\.?\d*$/,
       message: 'Must be a number',
     },
   };

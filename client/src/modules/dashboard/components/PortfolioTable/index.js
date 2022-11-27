@@ -16,8 +16,7 @@ export default function PortfolioTable({ css }) {
   const [isInputModalVisible, setIsInputModalVisible] =
     useState(false);
 
-  const onInputSubmit = () => {
-    console.log('submitted');
+  const onSubmitCloseModal = () => {
     setIsInputModalVisible(false);
   };
 
@@ -35,15 +34,7 @@ export default function PortfolioTable({ css }) {
     maximumFractionDigits: 0,
   });
 
-  if (error)
-    return (
-      <Container css={css}>
-        <Text>
-          Failed to load your Portfolio. Please refresh to try again
-        </Text>
-      </Container>
-    );
-  if (isLoading)
+  if (error || isLoading)
     return (
       <Container css={css}>
         <Loading
@@ -76,7 +67,7 @@ export default function PortfolioTable({ css }) {
       </Container>
       <CompanyInputModal
         visible={isInputModalVisible}
-        onSubmit={onInputSubmit}
+        onSubmitCloseModal={onSubmitCloseModal}
         onClose={onModalCloseHandler}
       />
       <Table

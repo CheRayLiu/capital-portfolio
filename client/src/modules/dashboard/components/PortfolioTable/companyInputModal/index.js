@@ -1,5 +1,4 @@
 import {
-  Button,
   Container,
   Modal,
   Text,
@@ -9,8 +8,8 @@ import CompanyInputForm from './companyInputForm';
 
 export default function CompanyInputModal({
   visible,
-  onSubmit,
   onClose,
+  onSubmitCloseModal,
 }) {
   return (
     <div>
@@ -30,16 +29,11 @@ export default function CompanyInputModal({
           </Container>
         </Modal.Header>
         <Modal.Body>
-          <CompanyInputForm />
+          <CompanyInputForm
+            onCancel={onClose}
+            onSubmitCloseModal={onSubmitCloseModal}
+          />
         </Modal.Body>
-        <Modal.Footer>
-          <Button auto flat onPress={onClose}>
-            Cancel
-          </Button>
-          <Button auto onPress={onSubmit}>
-            Submit
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );

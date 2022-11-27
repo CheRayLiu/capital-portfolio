@@ -21,7 +21,6 @@ module.exports = (mongoose, mongoosePaginate) => {
           'Series E',
           'Series F',
         ],
-        default: 'N/A',
       },
       amount: {
         type: Number,

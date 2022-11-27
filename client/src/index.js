@@ -1,14 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-const queryClient = new QueryClient();
+import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClientWithCache = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+      staleTime: 30000,
+    },
+  },
+});
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClientWithCache}>
       <App />
     </QueryClientProvider>
   </React.StrictMode>

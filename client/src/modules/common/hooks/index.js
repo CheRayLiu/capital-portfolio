@@ -1,4 +1,6 @@
-import { useGetCompanies } from './company/company.hooks';
-import { useTheme } from '@nextui-org/react';
+import {
+  useGetCompanies,
+  usePostCompany,
+} from './company/company.hooks';
 
-export { useGetCompanies, useTheme };
+export { useGetCompanies, usePostCompany };

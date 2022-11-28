@@ -17,9 +17,8 @@ const PortfolioCompany = db.portfolioCompany;
 const seedData = async () => {
   try {
     await initDBConnection(() => {
-      companyNameFixtures.forEach((name, index) => {
+      companyNameFixtures.forEach((name) => {
         const portfolioCompany = new PortfolioCompany({
-          companyId: index,
           companyName: name,
           roundInvested:
             roundInvestedFixtures[

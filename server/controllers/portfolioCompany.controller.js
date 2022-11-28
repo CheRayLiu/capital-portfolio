@@ -3,7 +3,6 @@ const PortfolioCompany = db.portfolioCompany;
 
 exports.create = (req, res) => {
   const portfolioCompany = new PortfolioCompany({
-    companyId: req.body.companyId,
     companyName: req.body.companyName,
     roundInvested: req.body.roundInvested,
     amount: +req.body.amount,

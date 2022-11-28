@@ -1,10 +1,6 @@
-module.exports = (mongoose, mongoosePaginate) => {
+module.exports = (mongoose, mongoosePaginate, autoIncrement) => {
   const schema = mongoose.Schema(
     {
-      companyId: {
-        type: Number,
-        required: true,
-      },
       companyName: {
         type: String,
         required: true,
@@ -53,6 +49,10 @@ module.exports = (mongoose, mongoosePaginate) => {
   });
 
   schema.plugin(mongoosePaginate);
+  schema.plugin(autoIncrement.plugin, {
+    model: 'portfolioCompany',
+    field: 'companyId',
+  });
 
   const PortfolioCompany = mongoose.model('portfolioCompany', schema);
   return PortfolioCompany;

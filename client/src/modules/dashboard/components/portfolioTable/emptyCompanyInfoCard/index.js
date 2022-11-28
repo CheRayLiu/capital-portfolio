@@ -14,7 +14,7 @@ export default function EmptyCompanyInfoCard({ css }) {
         }}
       >
         <Text color="primary" h4 css={{ paddingRight: '1rem' }}>
-          Select a Company to learn more
+          Select a company to learn more
         </Text>
         <ArrowUpIcon />
       </Container>

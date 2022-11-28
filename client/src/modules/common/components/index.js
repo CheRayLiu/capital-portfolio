@@ -18,8 +18,8 @@ import {
   User,
 } from '@nextui-org/react';
 
-import ContraryLogo from './logos/contraryLogo';
 import { FeedbackIcon } from './icons/feedbackIcon';
+import IpsumLogo from './logos/ipsumLogo';
 import { PlusIcon } from './icons/plusIcon';
 import { Select } from './select';
 
@@ -28,7 +28,7 @@ export {
   Button,
   Card,
   Container,
-  ContraryLogo,
+  IpsumLogo,
   Col,
   Dropdown,
   FeedbackIcon,

@@ -1,8 +1,4 @@
-import {
-  ContraryLogo,
-  Navbar,
-  Text,
-} from '../../../common/components';
+import { IpsumLogo, Navbar, Text } from '../../../common/components';
 
 import { FeedbackIcon } from '../../../common/components';
 import { Flex } from '../../../common/components/styles/flex';
@@ -32,7 +28,7 @@ export default function NavbarWrapper() {
       }}
     >
       <Navbar.Brand>
-        <ContraryLogo height={32} width={194} />
+        <IpsumLogo height={32} width={194} />
       </Navbar.Brand>
       <Navbar.Content>
         <Navbar.Content hideIn={'md'}>

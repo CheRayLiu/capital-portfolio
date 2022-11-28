@@ -1,14 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 
+import { getAPIUrl } from '../../constants';
 import { toast } from 'react-toastify';
 
 export const useGetCompanies = () =>
   useQuery(
     'getCompanies',
     async () => {
-      const res = await fetch(
-        'https://capital-portfolio-api.vercel.app/api/portfolioCompanies'
-      );
+      const res = await fetch(`${getAPIUrl}/api/portfolioCompanies`);
       return await res.json();
     },
     {
@@ -31,17 +30,14 @@ export const usePostCompany = () => {
   return useMutation(
     'postCompany',
     async (company) => {
-      const res = await fetch(
-        'https://capital-portfolio-api.vercel.app/api/portfolioCompany',
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(company),
-        }
-      );
+      const res = await fetch(`${getAPIUrl}/api/portfolioCompany`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(company),
+      });
 
       return await res.json();
     },

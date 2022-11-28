@@ -2,7 +2,7 @@ import { Card, Container, Text } from '../../../../common/components';
 
 import { EyeIcon } from '../../../../common/components/icons/ArrowUpIcon';
 
-export default function EmptyCompanyInfoCard({ css, company }) {
+export default function EmptyCompanyInfoCard({ css }) {
   return (
     <Card css={css}>
       <Container

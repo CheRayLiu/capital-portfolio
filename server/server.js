@@ -4,7 +4,10 @@ require('dotenv').config();
 const app = express();
 const { initDBConnection } = require('./utils/dbUtils');
 var corsOptions = {
-  origin: 'https://capital-portfolio-client.vercel.app',
+  origin:
+    process.env['ENV'] === 'local'
+      ? 'http://localhost:3000'
+      : 'https://capital-portfolio-client.vercel.app',
 };
 
 app.use(cors(corsOptions));

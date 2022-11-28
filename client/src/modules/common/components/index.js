@@ -18,7 +18,6 @@ import {
   User,
 } from '@nextui-org/react';
 
-import { FeedbackIcon } from './icons/feedbackIcon';
 import IpsumLogo from './logos/ipsumLogo';
 import { PlusIcon } from './icons/plusIcon';
 import { Select } from './select';
@@ -31,7 +30,6 @@ export {
   IpsumLogo,
   Col,
   Dropdown,
-  FeedbackIcon,
   Grid,
   Image,
   Input,

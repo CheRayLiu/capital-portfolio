@@ -1,7 +1,5 @@
-import { IpsumLogo, Navbar, Text } from '../../../common/components';
+import { IpsumLogo, Navbar } from '../../../common/components';
 
-import { FeedbackIcon } from '../../../common/components';
-import { Flex } from '../../../common/components/styles/flex';
 import { UserDropdown } from './userDropdown';
 
 export default function NavbarWrapper() {
@@ -31,12 +29,6 @@ export default function NavbarWrapper() {
         <IpsumLogo height={32} width={194} />
       </Navbar.Brand>
       <Navbar.Content>
-        <Navbar.Content hideIn={'md'}>
-          <Flex align={'center'} css={{ gap: '$sm' }}>
-            <FeedbackIcon />
-            <Text span>Feedback?</Text>
-          </Flex>
-        </Navbar.Content>
         <Navbar.Content>
           <UserDropdown />
         </Navbar.Content>

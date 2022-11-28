@@ -2,13 +2,13 @@ import { Avatar, Dropdown, Navbar, Text } from '@nextui-org/react';
 
 export const UserDropdown = () => {
   return (
-    <Dropdown placement="bottom-right">
+    <Dropdown>
       <Navbar.Item>
         <Dropdown.Trigger>
           <Avatar
             bordered
             as="button"
-            color="secondary"
+            color="primary"
             size="md"
             src="https://i.pravatar.cc/150?u=a04258114e29026702d"
           />

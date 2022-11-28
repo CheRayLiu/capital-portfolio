@@ -7,7 +7,7 @@ export const useGetCompanies = () =>
     'getCompanies',
     async () => {
       const res = await fetch(
-        'http://localhost:8080/api/portfolioCompanies'
+        'https://capital-portfolio-api.vercel.app/api/portfolioCompanies'
       );
       return await res.json();
     },
@@ -32,7 +32,7 @@ export const usePostCompany = () => {
     'postCompany',
     async (company) => {
       const res = await fetch(
-        'http://localhost:8080/api/portfolioCompany',
+        'https://capital-portfolio-api.vercel.app/api/portfolioCompany',
         {
           method: 'POST',
           headers: {

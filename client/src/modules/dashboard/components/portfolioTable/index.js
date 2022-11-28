@@ -98,6 +98,7 @@ export default function PortfolioTable({ css }) {
           minWidth: '100%',
         }}
         onSelectionChange={onSelectionChangeHandler}
+        disallowEmptySelection
       >
         <Table.Header>
           <Table.Column>Portfolio Company ID</Table.Column>

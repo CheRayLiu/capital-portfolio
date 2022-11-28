@@ -22,11 +22,7 @@ export default function CompanyInputForm({
 
   const postCompanyMutation = usePostCompany();
   const onSubmit = (data) => {
-    let tempData = {
-      companyId: 1,
-      ...data,
-    };
-    postCompanyMutation.mutate(tempData);
+    postCompanyMutation.mutate(data);
     onSubmitCloseModal();
   };
   return (
@@ -142,7 +138,7 @@ export default function CompanyInputForm({
         <Spacer y="xs" />
       </Modal.Body>
       <Modal.Footer>
-        <Button auto flat onPress={onCancel}>
+        <Button auto flat onClick={onCancel}>
           Cancel
         </Button>
         <Button auto onClick={handleSubmit(onSubmit)}>

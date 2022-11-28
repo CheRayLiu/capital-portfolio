@@ -5,7 +5,7 @@ export default function Dashboard() {
   return (
     <div>
       <Navbar />
-      <PortfolioTable css={{mt: "$sm"}} />
+      <PortfolioTable css={{ marginTop: '$xl', maxWidth: '80%' }} />
     </div>
   );
 }

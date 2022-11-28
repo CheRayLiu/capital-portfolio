@@ -2,11 +2,14 @@ import {
   Button,
   Container,
   Loading,
+  Spacer,
   Table,
   Text,
 } from '../../../common/components';
 
+import CompanyInfoCard from './companyInfoCard';
 import CompanyInputModal from './companyInputModal';
+import EmptyCompanyInfoCard from './emptyCompanyInfoCard';
 import { PlusIcon } from '../../../common/components';
 import { useGetCompanies } from '../../../common/hooks';
 import { useState } from 'react';
@@ -15,6 +18,9 @@ export default function PortfolioTable({ css }) {
   const { data, error, isLoading } = useGetCompanies();
   const [isInputModalVisible, setIsInputModalVisible] =
     useState(false);
+
+  const [isCompInfoVisible, setIsCompInfoVisible] = useState(false);
+  const [curCompanyId, setCurCompanyId] = useState(null);
 
   const onSubmitCloseModal = () => {
     setIsInputModalVisible(false);
@@ -26,6 +32,15 @@ export default function PortfolioTable({ css }) {
 
   const onModalCloseHandler = () => {
     setIsInputModalVisible(false);
+  };
+
+  const onSelectionChangeHandler = (selection) => {
+    if (selection.size === 0) {
+      setIsCompInfoVisible(false);
+    } else {
+      setIsCompInfoVisible(true);
+      setCurCompanyId(Array.from(selection)[0]);
+    }
   };
 
   const formatter = new Intl.NumberFormat('en-US', {
@@ -59,7 +74,7 @@ export default function PortfolioTable({ css }) {
         <Button
           flat
           icon={<PlusIcon />}
-          onPress={addCompanyClickHandler}
+          onClick={addCompanyClickHandler}
           color="primary"
         >
           Add a Company
@@ -74,28 +89,24 @@ export default function PortfolioTable({ css }) {
         lined
         striped
         sticked
-        bordered
         headerLined
-        shadow={false}
+        shadow
         selectionMode="single"
         color="primary"
         css={{
           height: 'auto',
           minWidth: '100%',
         }}
+        onSelectionChange={onSelectionChangeHandler}
       >
         <Table.Header>
-          <Table.Column allowsSorting>
-            Portfolio Company ID
-          </Table.Column>
-          <Table.Column allowsSorting>
-            Portfolio Company Name
-          </Table.Column>
-          <Table.Column allowsSorting>Round Invested</Table.Column>
-          <Table.Column allowsSorting>Amount</Table.Column>
-          <Table.Column allowsSorting>Valution at Raise</Table.Column>
-          <Table.Column allowsSorting>Date of Raise</Table.Column>
-          <Table.Column allowsSorting>Equity Percent</Table.Column>
+          <Table.Column>Portfolio Company ID</Table.Column>
+          <Table.Column>Portfolio Company Name</Table.Column>
+          <Table.Column>Round Invested</Table.Column>
+          <Table.Column>Amount</Table.Column>
+          <Table.Column>Valuation at Raise</Table.Column>
+          <Table.Column>Date of Raise</Table.Column>
+          <Table.Column>Equity Percent</Table.Column>
         </Table.Header>
         <Table.Body>
           {data.docs.map((company) => {
@@ -124,9 +135,19 @@ export default function PortfolioTable({ css }) {
           noMargin
           align="center"
           rowsPerPage={5}
-          onPageChange={(page) => console.log({ page })}
+          boundaries={2}
         />
       </Table>
+      <Spacer y={2} />
+      {isCompInfoVisible ? (
+        <CompanyInfoCard
+          company={data.docs.find(
+            (company) => company.companyId === +curCompanyId
+          )}
+        />
+      ) : (
+        <EmptyCompanyInfoCard css={{ minHeight: '288px' }} />
+      )}
     </Container>
   );
 }

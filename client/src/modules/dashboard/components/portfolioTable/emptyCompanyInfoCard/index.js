@@ -1,6 +1,6 @@
 import { Card, Container, Text } from '../../../../common/components';
 
-import { EyeIcon } from '../../../../common/components/icons/ArrowUpIcon';
+import { ArrowUpIcon } from '../../../../common/components/icons/ArrowUpIcon';
 
 export default function EmptyCompanyInfoCard({ css }) {
   return (
@@ -16,7 +16,7 @@ export default function EmptyCompanyInfoCard({ css }) {
         <Text color="primary" h4 css={{ paddingRight: '1rem' }}>
           Select a Company to learn more
         </Text>
-        <EyeIcon />
+        <ArrowUpIcon />
       </Container>
     </Card>
   );

@@ -1,4 +1,3 @@
-import { Image } from '..';
 import { Svg } from '../styles/svg';
 export default function IpsumLogo({ height, width }) {
   return (

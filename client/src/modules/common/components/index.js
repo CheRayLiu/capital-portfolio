@@ -18,11 +18,13 @@ import {
   User,
 } from '@nextui-org/react';
 
+import { ArrowUpIcon } from './icons/ArrowUpIcon';
 import IpsumLogo from './logos/ipsumLogo';
 import { PlusIcon } from './icons/plusIcon';
 import { Select } from './select';
 
 export {
+  ArrowUpIcon,
   Avatar,
   Button,
   Card,
